@@ -19,7 +19,7 @@ export class ProductCrudComponent {
   }
   getallproducts()
   {
-    this.http.get("http://localhost:8888/view_product").subscribe((fetchres:any)=>{
+    this.http.get("https://back-end-6m2e.onrender.com/view_product").subscribe((fetchres:any)=>{
       console.log(fetchres);
       this.productArray=fetchres;
     })
@@ -42,7 +42,7 @@ let bodyData={
 // in above left side variales are called Backend variables  
 // right side variable is called form-variable (we have already get it using ts-variable )  
 } 
-this.http.put("http://localhost:8888//updateone/"+this.currentProductID,bodyData).subscribe((resultData:any)=>{ 
+this.http.put("https://back-end-6m2e.onrender.com/updateone/"+this.currentProductID,bodyData).subscribe((resultData:any)=>{ 
 console.log(resultData); 
 alert("Product Updated SUccessfully"); 
 this.product_id=""; 
@@ -63,7 +63,7 @@ this.getallproducts();
 } 
 } 
 setDelete(data:any)  
-{ this.http.delete("http://localhost:8888/deleteone/"+data._id).subscribe((resultData:any)=>{ 
+{ this.http.delete("https://back-end-6m2e.onrender.com/deleteone/"+data._id).subscribe((resultData:any)=>{ 
 console.log(resultData); 
 this.getallproducts(); 
 });
@@ -77,7 +77,7 @@ alert("Product Deleted SUccessfully");
       "pname":this.product_name,
       "price":this.product_price
     }
-    this.http.post("http://localhost:8888/create_product",bodydata).subscribe((result:any)=>{
+    this.http.post("https://back-end-6m2e.onrender.com/create_product",bodydata).subscribe((result:any)=>{
 
         console.log(result);
         alert("product register successfully")
