@@ -1,0 +1,49 @@
+
+<div class="container mt-4">
+    <div class="card px-3 py-3">
+    <H1>PRODUCT DETAILS HERE</H1> 
+   <form> 
+    <div class="form-group"> 
+    <label for="produtId">Enter Product ID</label> 
+    <input type="text" class="form-control"[(ngModel)]="product_id" name="pid" id="pid" placeholder="Product Id Here"> 
+    </div> 
+    <div class="form-group"> 
+    <label for="produtName">Enter Product Name</label> 
+    <input type="text" class="form-control" [(ngModel)]="product_name" name="pname" id="pname" placeholder="Product 
+   Name Here"> 
+    </div> 
+    <div class="form-group"> 
+    <label for="produtprice">Enter Price</label> 
+    <input type="text" class="form-control" [(ngModel)]="product_price" name="price" id="price" placeholder="Product Price 
+   Here"> 
+    </div> 
+    <button type="submit" (click)="save()" class="btn btn-info">Submit</button> 
+    </form>
+
+   </div> 
+   </div> 
+   <!--- Table desing-->
+<div class="container mt-2"> 
+    <table class="table"> 
+    <thead> 
+     <tr> 
+     <th scope="col">Product-ID</th> 
+     <th scope="col">Product-Name</th> 
+     <th scope="col">Product-Price</th> 
+     <th scope="col">Options</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr *ngFor="let Products of productArray"> 
+    <td>{{Products.pid}}</td> <!-- here pid is mongodb variable -->
+    <td>{{Products.pname}}</td> 
+    <td>{{Products.price}}</td> 
+    <td> 
+    <button type="button" class="btn btn-success" style="margin: 5px;width: 100px;" 
+(click)="setUpdate(Products)" >Edit</button> 
+     <button type="button" class="btn btn-danger" style="margin: 5px;width: 100px;" (click)="setDelete(Products)">Delete</button> 
+    </td> 
+    </tr> 
+    </tbody> 
+    </table> 
+    </div> 
